@@ -3,11 +3,18 @@
 // http variable (variable name not required to be same as module name)
 var http = require('http');
 
-function start() {
+// load url module
+var url = require('url');
+
+function start(route) {
 	function onRequest(request, response) {
+		var pathname = url.parse(request.url).pathname;
+
 		// message will print two times if browser will request
 		// for favicon too
-		console.log('Request Received');
+		console.log('Request for ' + pathname + ' Received');
+
+		route(pathname);
 
 		// writes header to send to browser
 		response.writeHead(200, {'Content-Type': 'text/plain'});
