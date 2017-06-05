@@ -14,16 +14,7 @@ function start(route, handle) {
 		// for favicon too
 		console.log('Request for ' + pathname + ' Received');
 
-		// writes header to send to browser
-		response.writeHead(200, {'Content-Type': 'text/plain'});
-
-		var content = route(handle, pathname);
-
-		// send text
-		response.write(content);
-
-		// finish the response
-		response.end();
+		route(handle, pathname, response);
 	}
 
 	// start server and call callback function
