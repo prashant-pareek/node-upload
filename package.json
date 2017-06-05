@@ -1,0 +1,30 @@
+{
+  "name": "node-upload",
+  "version": "1.0.0",
+  "description": "simple node.js application to upload file",
+  "main": "index.js",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashant-pareek/node-upload.git"
+  },
+  "keywords": [
+    "node",
+    "upload",
+    "basic",
+    "simple"
+  ],
+  "author": "Prashant Pareek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashant-pareek/node-upload/issues"
+  },
+  "homepage": "https://github.com/prashant-pareek/node-upload#readme"
+}
