@@ -8,13 +8,22 @@ var url = require('url');
 
 function start(route, handle) {
 	function onRequest(request, response) {
+		var postData = '';
 		var pathname = url.parse(request.url).pathname;
+
+		request.setEncoding('utf8');
+
+		request.addListener('data', function(postDataChunk) {
+			postData += postDataChunk;
+		});
+
+		request.addListener('end', function() {
+			route(handle, pathname, response, postData);
+		})
 
 		// message will print two times if browser will request
 		// for favicon too
 		console.log('Request for ' + pathname + ' Received');
-
-		route(handle, pathname, response);
 	}
 
 	// start server and call callback function
